@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精彩时刻</title>
+    <style type="text/css">
+        #framemain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .show-monitor {
+            width: 320px;
+            height: 600px;
+            margin: 50px 0px 0px 50px;
+        }
+
+        .panel-head {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 其他保留样式... */
+
+        /* 媒体查询保留 */
+        @media (max-width: 768px) {
+            .show-monitor {
+                width: auto;
+                height: auto;
+                margin: 20px;
+            }
+            /* 其他响应式样式保留 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 已删除微信警告 div -->
+
+    <div id="iframeAll">
+	
+        <iframe src="https://1552882.github.io/Public/"frame"></iframe>
+    </div>
+
+    	<div id="countdown" style="
+  width: 100%;
+  height: 40px;
+  background-color: red;
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  text-align: center;
+  font-size: 24px;
+  line-height: 40px;
+  color: white;
+  font-weight: bold;
+"></div>
+
+    <div class="show-monitor" id="showMonitor">
+
+        <iframe src="https://www.douyin.com/video/7096353146141707524" id="framemain"></iframe>
+    </div>
+
+    <script>
+        let timee = 100;
+        let timea = 100;
+        let reflash = true;
+        let pathValuea = "http://www.baidu.com";
+
+        // 保留 URL 参数解析逻辑
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const name = urlParams.get('name');
+
+        if (name == null) {
+            sendFetchGetRequest().then(result0 => {
+                // 保留 iframe 动态加载逻辑
+            }).catch(error => {
+                console.error('发生错误:', error);
+            });
+        } else {
+            sendQueryAll(name).then(result => {
+                document.getElementById('frame').src = addHttpsPrefix(result.path);
+            }).catch(error => {
+                console.error('发生错误:', error);
+            });
+        }
+
+        // 保留倒计时功能
+        function updateCountdown() {
+            timee = Math.floor(timee) - 1;
+            if (timee < timea / 2 & reflash) {
+                reflash = false;
+                refreshIframes();
+            }
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `精彩秘密在第30秒，注意！快进不显示`;
+        }
+
+        // 保留其他工具函数
+        function addHttpsPrefix(url) { return url; }
+        async function sendQueryAll(name) { /* 保留 */ }
+        async function sendFetchGetRequest() { /* 保留 */ }
+        async function sendGetinit() { /* 保留 */ }
+
+        // 初始化执行
+        sendGetinit();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
